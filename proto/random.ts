@@ -14,6 +14,8 @@ export interface ProtoGrpcType {
     Random: SubtypeConstructor<typeof grpc.Client, _randomPackage_RandomClient> & { service: _randomPackage_RandomDefinition }
     RandomNumbersRequest: MessageTypeDefinition
     RandomNumbersResponse: MessageTypeDefinition
+    TodoListRequest: MessageTypeDefinition
+    TodoListResponse: MessageTypeDefinition
   }
 }
 
