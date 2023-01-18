@@ -44,4 +44,18 @@ function onClientReady() {
   stream.on("end", () => {
     console.log("FINI");
   });
+
+  const todoListStream = client.TodoList((err, result) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(result);
+    // { todo: "toto", status: "not yet" }
+  });
+  todoListStream.write({ todo: "Clean my room", status: "Done" });
+  todoListStream.write({ todo: "Work in Google", status: "Done" });
+  todoListStream.write({ todo: "Be unhappy", status: "Never" });
+  todoListStream.write({ todo: "Be genius", status: "Always" });
+  todoListStream.end();
 }
