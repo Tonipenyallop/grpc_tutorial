@@ -2,6 +2,7 @@ import path from "path";
 import * as grpc from "@grpc/grpc-js";
 import * as protoLoader from "@grpc/proto-loader";
 import { ProtoGrpcType } from "./proto/random";
+import readline from "readline";
 
 const PORT = 8082;
 const PROTO_FILE = "./proto/random.proto";
@@ -58,4 +59,36 @@ function onClientReady() {
   todoListStream.write({ todo: "Be unhappy", status: "Never" });
   todoListStream.write({ todo: "Be genius", status: "Always" });
   todoListStream.end();
+
+  const Ireadline = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  console.log("process.argv");
+  console.log(process.argv);
+  const userName = process.argv[2];
+  if (!userName) {
+    console.error("UserName is required");
+    return;
+  }
+  const metadata = new grpc.Metadata();
+  metadata.set("userName", userName);
+  const call = client.Chat(metadata);
+  call.write({
+    message: "register",
+  });
+
+  call.on("data", (chunk) => {
+    console.log(`${chunk.userName} ===> ${chunk.message}`);
+  });
+
+  Ireadline.on("line", (line) => {
+    if (line === "quite") {
+      call.end();
+      return;
+    }
+    call.write({
+      message: line,
+    });
+  });
 }
