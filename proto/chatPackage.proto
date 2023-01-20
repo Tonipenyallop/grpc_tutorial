@@ -1,0 +1,51 @@
+syntax = "proto3";
+package chatPackage;
+
+service ChatService {
+    rpc ChatInitiate(ChatInitiateRequest) returns (ChatInitiateResponse){};
+    rpc SendMessage(SendMessageRequest) returns (SendMessageResponse){};
+    rpc UserStream(StreamRequest) returns (stream UserStreamResponse){};
+    rpc ChatStream(StreamRequest) returns (stream ChatStreamResponse){};
+ }
+
+message ChatInitiateRequest {
+    string username = 1;
+    string avatar_url = 2;
+}
+message ChatInitiateResponse {
+    int32 id = 1;
+}
+message SendMessageRequest {
+    int32 id = 1;
+    string message = 2;
+}
+message SendMessageResponse {
+    
+}
+
+enum Status {
+    UNKNOWN = 0;
+    ONLINE = 1;
+    OFFLINE = 2;
+}
+
+message User {
+    int32 id = 1;
+    string username = 2;
+    Status status = 3;
+    string avatar_url = 4;
+}
+
+message UserStreamResponse {
+    repeated User user = 1;
+}
+
+message StreamRequest {
+    int32 id = 1;
+  }
+
+message ChatStreamResponse {
+    int32 id = 1;
+    string message = 2; 
+}
+
