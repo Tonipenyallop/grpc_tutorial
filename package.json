@@ -7,7 +7,8 @@
     "proto:gen": "sh proto-gen.sh",
     "server": "ts-node server",
     "client": "ts-node client",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -28,11 +29,6 @@
   "dependencies": {
     "nodemon": "^2.0.20"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
@@ -42,6 +38,8 @@
     "*.{html,css,less,ejs}": [
       "prettier --write",
       "git add"
-    ]
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
