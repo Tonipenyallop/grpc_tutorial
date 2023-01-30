@@ -10,6 +10,8 @@ import { TodoListRequest } from './proto/randomPackage/TodoListRequest';
 import { ChatRequest } from './proto/randomPackage/ChatRequest';
 import { ChatResponse } from './proto/randomPackage/ChatResponse';
 import { ChatServiceHandlers } from './proto/chatPackage/ChatService';
+import { ChatInitiateResponse } from './proto/chatPackage/ChatInitiateResponse';
+import { v4 as uuid } from 'uuid';
 const PORT = 8082;
 const RANDOM_PROTO_FILE = './proto/random.proto';
 const CHAT_PROTO_FILE = './proto/chatPackage.proto';
@@ -117,7 +119,18 @@ function getServer() {
     },
   } as RandomHandlers);
 
-  server.addService(chatPackage.ChatService.service, {} as ChatServiceHandlers);
+  server.addService(chatPackage.ChatService.service, {
+    ChatInitiate: (call, callback) => {
+      console.log('inside of ChatInitiate method yo!');
+      const { username = '' } = call.request;
+      const { avatarUrl = '' } = call.request;
+      if (!username || !avatarUrl)
+        return callback(new Error('username and avatarUrl are required'));
+
+      const output: ChatInitiateResponse = { id: uuid() };
+      callback(null, output);
+    },
+  } as ChatServiceHandlers);
 
   return server;
 }

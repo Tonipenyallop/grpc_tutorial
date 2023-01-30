@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ChatServiceClient } from './proto/ChatPackageServiceClientPb';
+import { ChatInitiateRequest } from './proto/chatPackage_pb';
 
 function App() {
+  useEffect(() => {
+    (async () => {
+      const client = new ChatServiceClient('http://localhost:8080');
+      const req = new ChatInitiateRequest();
+      req.setUsername('Taesu');
+      req.setAvatarUrl('tmpURL');
+      const res = client
+        .chatInitiate(req, {})
+        .catch(err => console.error({ err }));
+    })();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
