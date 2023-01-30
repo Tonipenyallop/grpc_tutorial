@@ -13,10 +13,10 @@ message ChatInitiateRequest {
     string avatar_url = 2;
 }
 message ChatInitiateResponse {
-    int32 id = 1;
+    string id = 1;
 }
 message SendMessageRequest {
-    int32 id = 1;
+    string id = 1;
     string message = 2;
 }
 message SendMessageResponse {
@@ -30,7 +30,7 @@ enum Status {
 }
 
 message User {
-    int32 id = 1;
+    string id = 1;
     string username = 2;
     Status status = 3;
     string avatar_url = 4;
@@ -41,11 +41,11 @@ message UserStreamResponse {
 }
 
 message StreamRequest {
-    int32 id = 1;
+    string id = 1;
   }
 
 message ChatStreamResponse {
-    int32 id = 1;
+    string id = 1;
     string message = 2; 
 }
 

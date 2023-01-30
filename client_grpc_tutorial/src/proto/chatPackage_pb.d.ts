@@ -32,8 +32,8 @@ export namespace ChatInitiateRequest {
 }
 
 export class ChatInitiateResponse extends jspb.Message {
-  getId(): number;
-  setId(value: number): ChatInitiateResponse;
+  getId(): string;
+  setId(value: string): ChatInitiateResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ChatInitiateResponse.AsObject;
@@ -54,13 +54,13 @@ export class ChatInitiateResponse extends jspb.Message {
 
 export namespace ChatInitiateResponse {
   export type AsObject = {
-    id: number;
+    id: string;
   };
 }
 
 export class SendMessageRequest extends jspb.Message {
-  getId(): number;
-  setId(value: number): SendMessageRequest;
+  getId(): string;
+  setId(value: string): SendMessageRequest;
 
   getMessage(): string;
   setMessage(value: string): SendMessageRequest;
@@ -84,7 +84,7 @@ export class SendMessageRequest extends jspb.Message {
 
 export namespace SendMessageRequest {
   export type AsObject = {
-    id: number;
+    id: string;
     message: string;
   };
 }
@@ -112,8 +112,8 @@ export namespace SendMessageResponse {
 }
 
 export class User extends jspb.Message {
-  getId(): number;
-  setId(value: number): User;
+  getId(): string;
+  setId(value: string): User;
 
   getUsername(): string;
   setUsername(value: string): User;
@@ -140,7 +140,7 @@ export class User extends jspb.Message {
 
 export namespace User {
   export type AsObject = {
-    id: number;
+    id: string;
     username: string;
     status: Status;
     avatarUrl: string;
@@ -177,8 +177,8 @@ export namespace UserStreamResponse {
 }
 
 export class StreamRequest extends jspb.Message {
-  getId(): number;
-  setId(value: number): StreamRequest;
+  getId(): string;
+  setId(value: string): StreamRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): StreamRequest.AsObject;
@@ -199,13 +199,13 @@ export class StreamRequest extends jspb.Message {
 
 export namespace StreamRequest {
   export type AsObject = {
-    id: number;
+    id: string;
   };
 }
 
 export class ChatStreamResponse extends jspb.Message {
-  getId(): number;
-  setId(value: number): ChatStreamResponse;
+  getId(): string;
+  setId(value: string): ChatStreamResponse;
 
   getMessage(): string;
   setMessage(value: string): ChatStreamResponse;
@@ -229,7 +229,7 @@ export class ChatStreamResponse extends jspb.Message {
 
 export namespace ChatStreamResponse {
   export type AsObject = {
-    id: number;
+    id: string;
     message: string;
   };
 }

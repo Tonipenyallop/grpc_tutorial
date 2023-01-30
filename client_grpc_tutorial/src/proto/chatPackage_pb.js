@@ -407,7 +407,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   ) {
     var f,
       obj = {
-        id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        id: jspb.Message.getFieldWithDefault(msg, 1, ''),
       };
 
     if (includeInstance) {
@@ -449,7 +449,7 @@ proto.chatPackage.ChatInitiateResponse.deserializeBinaryFromReader = function (
     var field = reader.getFieldNumber();
     switch (field) {
       case 1:
-        var value = /** @type {number} */ (reader.readInt32());
+        var value = /** @type {string} */ (reader.readString());
         msg.setId(value);
         break;
       default:
@@ -483,25 +483,25 @@ proto.chatPackage.ChatInitiateResponse.serializeBinaryToWriter = function (
 ) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(1, f);
+  if (f.length > 0) {
+    writer.writeString(1, f);
   }
 };
 
 /**
- * optional int32 id = 1;
- * @return {number}
+ * optional string id = 1;
+ * @return {string}
  */
 proto.chatPackage.ChatInitiateResponse.prototype.getId = function () {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.chatPackage.ChatInitiateResponse} returns this
  */
 proto.chatPackage.ChatInitiateResponse.prototype.setId = function (value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -541,7 +541,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   ) {
     var f,
       obj = {
-        id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        id: jspb.Message.getFieldWithDefault(msg, 1, ''),
         message: jspb.Message.getFieldWithDefault(msg, 2, ''),
       };
 
@@ -584,7 +584,7 @@ proto.chatPackage.SendMessageRequest.deserializeBinaryFromReader = function (
     var field = reader.getFieldNumber();
     switch (field) {
       case 1:
-        var value = /** @type {number} */ (reader.readInt32());
+        var value = /** @type {string} */ (reader.readString());
         msg.setId(value);
         break;
       case 2:
@@ -622,8 +622,8 @@ proto.chatPackage.SendMessageRequest.serializeBinaryToWriter = function (
 ) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(1, f);
+  if (f.length > 0) {
+    writer.writeString(1, f);
   }
   f = message.getMessage();
   if (f.length > 0) {
@@ -632,19 +632,19 @@ proto.chatPackage.SendMessageRequest.serializeBinaryToWriter = function (
 };
 
 /**
- * optional int32 id = 1;
- * @return {number}
+ * optional string id = 1;
+ * @return {string}
  */
 proto.chatPackage.SendMessageRequest.prototype.getId = function () {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.chatPackage.SendMessageRequest} returns this
  */
 proto.chatPackage.SendMessageRequest.prototype.setId = function (value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 /**
@@ -800,7 +800,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   proto.chatPackage.User.toObject = function (includeInstance, msg) {
     var f,
       obj = {
-        id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        id: jspb.Message.getFieldWithDefault(msg, 1, ''),
         username: jspb.Message.getFieldWithDefault(msg, 2, ''),
         status: jspb.Message.getFieldWithDefault(msg, 3, 0),
         avatarUrl: jspb.Message.getFieldWithDefault(msg, 4, ''),
@@ -839,7 +839,7 @@ proto.chatPackage.User.deserializeBinaryFromReader = function (msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
       case 1:
-        var value = /** @type {number} */ (reader.readInt32());
+        var value = /** @type {string} */ (reader.readString());
         msg.setId(value);
         break;
       case 2:
@@ -884,8 +884,8 @@ proto.chatPackage.User.prototype.serializeBinary = function () {
 proto.chatPackage.User.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(1, f);
+  if (f.length > 0) {
+    writer.writeString(1, f);
   }
   f = message.getUsername();
   if (f.length > 0) {
@@ -902,19 +902,19 @@ proto.chatPackage.User.serializeBinaryToWriter = function (message, writer) {
 };
 
 /**
- * optional int32 id = 1;
- * @return {number}
+ * optional string id = 1;
+ * @return {string}
  */
 proto.chatPackage.User.prototype.getId = function () {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.chatPackage.User} returns this
  */
 proto.chatPackage.User.prototype.setId = function (value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 /**
@@ -1179,7 +1179,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   proto.chatPackage.StreamRequest.toObject = function (includeInstance, msg) {
     var f,
       obj = {
-        id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        id: jspb.Message.getFieldWithDefault(msg, 1, ''),
       };
 
     if (includeInstance) {
@@ -1221,7 +1221,7 @@ proto.chatPackage.StreamRequest.deserializeBinaryFromReader = function (
     var field = reader.getFieldNumber();
     switch (field) {
       case 1:
-        var value = /** @type {number} */ (reader.readInt32());
+        var value = /** @type {string} */ (reader.readString());
         msg.setId(value);
         break;
       default:
@@ -1255,25 +1255,25 @@ proto.chatPackage.StreamRequest.serializeBinaryToWriter = function (
 ) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(1, f);
+  if (f.length > 0) {
+    writer.writeString(1, f);
   }
 };
 
 /**
- * optional int32 id = 1;
- * @return {number}
+ * optional string id = 1;
+ * @return {string}
  */
 proto.chatPackage.StreamRequest.prototype.getId = function () {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.chatPackage.StreamRequest} returns this
  */
 proto.chatPackage.StreamRequest.prototype.setId = function (value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1313,7 +1313,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   ) {
     var f,
       obj = {
-        id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        id: jspb.Message.getFieldWithDefault(msg, 1, ''),
         message: jspb.Message.getFieldWithDefault(msg, 2, ''),
       };
 
@@ -1356,7 +1356,7 @@ proto.chatPackage.ChatStreamResponse.deserializeBinaryFromReader = function (
     var field = reader.getFieldNumber();
     switch (field) {
       case 1:
-        var value = /** @type {number} */ (reader.readInt32());
+        var value = /** @type {string} */ (reader.readString());
         msg.setId(value);
         break;
       case 2:
@@ -1394,8 +1394,8 @@ proto.chatPackage.ChatStreamResponse.serializeBinaryToWriter = function (
 ) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(1, f);
+  if (f.length > 0) {
+    writer.writeString(1, f);
   }
   f = message.getMessage();
   if (f.length > 0) {
@@ -1404,19 +1404,19 @@ proto.chatPackage.ChatStreamResponse.serializeBinaryToWriter = function (
 };
 
 /**
- * optional int32 id = 1;
- * @return {number}
+ * optional string id = 1;
+ * @return {string}
  */
 proto.chatPackage.ChatStreamResponse.prototype.getId = function () {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.chatPackage.ChatStreamResponse} returns this
  */
 proto.chatPackage.ChatStreamResponse.prototype.setId = function (value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 /**

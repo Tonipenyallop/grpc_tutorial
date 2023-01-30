@@ -1,10 +1,9 @@
 // Original file: proto/chatPackage.proto
 
-
 export interface StreamRequest {
-  'id'?: (number);
+  id?: string;
 }
 
 export interface StreamRequest__Output {
-  'id'?: (number);
+  id?: string;
 }
